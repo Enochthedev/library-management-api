@@ -5,9 +5,9 @@ import app from '../../app';
 
 
 describe('GET /api/v1/librarians', () => {
-  it('should return all books and a status of 200',  async () => {
+  it('should return all librarians and a status of 200',  async () => {
     request(app)
-      .get('/api/v1/books')
+      .get('/api/v1/librarians')
       .expect('Content-Type', /json/)
       .expect(200)
       .then((response)=> {
@@ -16,13 +16,10 @@ describe('GET /api/v1/librarians', () => {
         //loop through the array and check if all the books have the properties of a book
         for (let i = 0;i < response.body.length;i++) {
           expect(response.body[i]).toHaveProperty('id');
-          expect(response.body[i]).toHaveProperty('title');
-          expect(response.body[i]).toHaveProperty('isbn');
-          expect(response.body[i]).toHaveProperty('genre');
-          expect(response.body[i]).toHaveProperty('publicationDate');
-          expect(response.body[i]).toHaveProperty('language');
-          expect(response.body[i]).toHaveProperty('summary');
-          expect(response.body[i]).toHaveProperty('pageCount');
+          expect(response.body[i]).toHaveProperty('name');
+          expect(response.body[i]).toHaveProperty('email');
+          expect(response.body[i]).toHaveProperty('phone');
+          expect(response.body[i]).toHaveProperty('address');
           expect(response.body[i]).toHaveProperty('status');
           expect(response.body[i]).toHaveProperty('available');
         }
