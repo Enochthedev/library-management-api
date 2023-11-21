@@ -2,9 +2,9 @@ import express from 'express';
 
 import MessageResponse from '../interfaces/MessageResponse';
 import emojis from './emojis';
-import Book from './books/books.route';
+import Book from './book/books.route';
 import Librarian from './librarian/librarian.route';
-import User from './users/users.route';
+import User from './user/users.route';
 
 
 const router = express.Router();
