@@ -1,9 +1,14 @@
 import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const {
-  MONGO_URI = 'localhost/library-management-api',
+  MONGO_URI = process.env.MONGO_URI || '',
 } = process.env;
 
+const client = new MongoClient(String(MONGO_URI));
+const db = client.db();
 
-export const client = new MongoClient(MONGO_URI);
-export const db = client.db();
+export { db };
+

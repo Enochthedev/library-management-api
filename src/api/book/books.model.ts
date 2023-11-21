@@ -1,5 +1,8 @@
 import * as z from 'zod';
 
+import { db } from '../../db';
+import { WithId } from 'mongodb';
+
 const Book = z.object({
   id: z.string().min(1),
   title: z.string(),
@@ -13,7 +16,9 @@ const Book = z.object({
   available: z.boolean().default(true),
 });
 
-type Book = z.infer<typeof Book>;
+export type Book = z.infer<typeof Book>;
+export type BookWithId = WithId<Book>;
 
-export default  Book ;
+export const Books = db.collection<Book>('books');
+
 
