@@ -4,16 +4,16 @@ import app from '../../app';
 
 
 
-describe('GET /api/v1/librarians', () => {
-  it('should return all librarians and a status of 200',  async () => {
+describe('GET /api/v1/users', () => {
+  it('should return all users and a status of 200',  async () => {
     request(app)
-      .get('/api/v1/librarians')
+      .get('/api/v1/users')
       .expect('Content-Type', /json/)
       .expect(200)
       .then((response)=> {
         expect(response.body).toHaveProperty('length');
         expect(response.body).toHaveLength(1);
-        //loop through the array and check if all the books have the properties of a book
+        //loop through the array and check if all the users have the properties of a users
         for (let i = 0;i < response.body.length;i++) {
           expect(response.body[i]).toHaveProperty('id');
           expect(response.body[i]).toHaveProperty('name');
