@@ -10,5 +10,5 @@ const {
 const client = new MongoClient(String(MONGO_URI));
 const db = client.db();
 
-export { db };
+export { db, client };
 

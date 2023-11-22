@@ -8,7 +8,7 @@ beforeAll(async () => {
     jest.setTimeout(30000);
     await Books.drop();
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
   
 });
