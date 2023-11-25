@@ -3,7 +3,7 @@ import * as z from 'zod';
 import { db } from '../../db';
 import { WithId } from 'mongodb';
 
-const Book = z.object({
+export const Book = z.object({
   id: z.string().min(1),
   title: z.string(),
   isbn: z.string().min(10),
