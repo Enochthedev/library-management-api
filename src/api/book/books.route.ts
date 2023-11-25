@@ -1,12 +1,11 @@
-import { Router, Request, Response } from 'express';
-import { BookWithId, Books } from './books.model';
+import { Router } from 'express';
+import * as BooksHandler from './books.handler';
 
 const router = Router();
 
-router.get('/', async (req: Request, res: Response<BookWithId[]>) => {
-  const books = await Books.find();
-  const result = await books.toArray();
-  res.json(result);
-});
+router.get('/', BooksHandler.findAll);
+// router.get('/:id', BooksHandler.findOne);
+// router.post('/', BooksHandler.create);
+// router.put('/:id', BooksHandler.update);
 
 export default router; 
